@@ -38,6 +38,16 @@
                ReferencedContainer = "container:SwiftRadio.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FCC367291D08887F006A590F"
+               BuildableName = "SwiftRadioUnitTests.xctest"
+               BlueprintName = "SwiftRadioUnitTests"
+               ReferencedContainer = "container:SwiftRadio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

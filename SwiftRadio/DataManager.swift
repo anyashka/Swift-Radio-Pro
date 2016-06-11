@@ -36,7 +36,7 @@ class DataManager {
     //*****************************************************************
     
     class func getDataFromFileWithSuccess(success: (data: NSData) -> Void) {
-        
+
         if let filePath = NSBundle.mainBundle().pathForResource("stations", ofType:"json") {
             do {
                 let data = try NSData(contentsOfFile:filePath,

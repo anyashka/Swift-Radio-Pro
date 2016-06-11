@@ -20,11 +20,11 @@ class SwiftRadioUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        // This method is called before the invocation of each test method in the class.
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+
         XCUIApplication().launch()
 
         // wait for the main view to load
@@ -34,11 +34,10 @@ class SwiftRadioUITests: XCTestCase {
             handler: nil)
         self.waitForExpectationsWithTimeout(10.0, handler: nil)
         
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+   
         super.tearDown()
     }
     
@@ -99,9 +98,6 @@ class SwiftRadioUITests: XCTestCase {
     }
     
     func testMainStationsView() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
         assertStationsPresent()
         
         hamburgerMenu.tap()
@@ -134,7 +130,36 @@ class SwiftRadioUITests: XCTestCase {
         app.buttons["Okay"].tap()
         app.buttons["logo"].tap()
         assertAboutContent()
+        app.buttons["email me"].tap()
+        app.navigationBars["From Swift Radio App"].buttons["Cancel"].tap()
         app.buttons["Okay"].tap()
+
+        app.navigationBars["Sub Pop Radio"].buttons["Back"].tap()
+
+        
+        app.tables.staticTexts["Sounds of the 80s"].swipeDown()
+        app.otherElements.containingType(.NavigationBar, identifier:"Swift Radio").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element.tap()
+        app.navigationBars["Swift Radio"].buttons["icon hamburger"].tap()
+ 
+        let searchSearchField = app.tables.searchFields["Search"]
+        searchSearchField.tap()
+        app.searchFields["Search"]
+        
+        let element = app.otherElements.containingType(.NavigationBar, identifier:"Swift Radio").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1)
+        element.tap()
+        app.navigationBars["Spaceland Radio"].childrenMatchingType(.Button).elementBoundByIndex(0).tap()
+        
+        let searchSearchField2 = app.searchFields["Search"]
+        searchSearchField2.buttons["Clear text"].tap()
+        searchSearchField2.tap()
+        app.searchFields["Search"]
+        let cancelButton = app.buttons["Cancel"]
+        cancelButton.tap()
+        searchSearchField.tap()
+        element.tap()
+        cancelButton.tap()
+        
+
     }
     
 }

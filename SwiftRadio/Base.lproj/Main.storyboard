@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kdl-ej-Zz5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kdl-ej-Zz5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Swift Radio-->
         <scene sceneID="7ik-k3-I0U">
             <objects>
-                <viewController id="enP-TM-Wa7" customClass="StationsViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="stations_vc" id="enP-TM-Wa7" customClass="StationsViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EZB-zC-ZAt"/>
                         <viewControllerLayoutGuide type="bottom" id="XnL-lx-4Ua"/>
@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMr-La-1Ga" id="NhW-Qy-GCO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stationImage" translatesAutoresizingMaskIntoConstraints="NO" id="GQm-Mf-6pw">
@@ -136,7 +136,7 @@
         <!--Menu View Controller-->
         <scene sceneID="4lL-TA-52h">
             <objects>
-                <viewController id="61j-j7-6ve" userLabel="Menu View Controller" customClass="PopUpMenuViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu_vc" id="61j-j7-6ve" userLabel="Menu View Controller" customClass="PopUpMenuViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s2p-Hv-1zV"/>
                         <viewControllerLayoutGuide type="bottom" id="HV6-5A-QuQ"/>
@@ -512,7 +512,7 @@
         <!--Info View Controller-->
         <scene sceneID="abW-KU-RWK">
             <objects>
-                <viewController id="bg5-7y-kdG" userLabel="Info View Controller" customClass="InfoDetailViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="info_vc" id="bg5-7y-kdG" userLabel="Info View Controller" customClass="InfoDetailViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uln-hJ-iAw"/>
                         <viewControllerLayoutGuide type="bottom" id="E91-K7-5sw"/>
@@ -614,7 +614,7 @@
         <!--About View Controller-->
         <scene sceneID="kq6-OO-kxI">
             <objects>
-                <viewController id="XU1-sh-p0s" customClass="AboutViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="about_vc" id="XU1-sh-p0s" customClass="AboutViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DUf-En-SDE"/>
                         <viewControllerLayoutGuide type="bottom" id="vCl-Js-ebt"/>
