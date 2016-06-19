@@ -18,8 +18,6 @@ class InfoDetailViewControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         infoVC = storyboard.instantiateViewControllerWithIdentifier("info_vc") as! InfoDetailViewController
         let _ = infoVC.view //calling viewDidLoad()
-
-
     }
     
     override func tearDown() {
@@ -30,5 +28,4 @@ class InfoDetailViewControllerTests: XCTestCase {
     func testControllerViewExists() {
         XCTAssertNotNil(infoVC.view,"View should exist")
     }
-    
 }

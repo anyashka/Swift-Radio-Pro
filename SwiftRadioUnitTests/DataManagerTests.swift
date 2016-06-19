@@ -25,11 +25,12 @@ class DataManagerTests: XCTestCase {
 
     func testGetStationDataWithSuccess() {
         let expectation = expectationWithDescription("GET Station Data With Success")
+        
         DataManager.getDataFromFileWithSuccess() { data in
-            
             XCTAssertNotNil(data, "data should be nil")
             expectation.fulfill()
         }
+        
         waitForExpectationsWithTimeout(10) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -42,14 +43,13 @@ class DataManagerTests: XCTestCase {
             let testBundle = NSBundle.mainBundle()
             let filePath = testBundle.pathForResource("stations", ofType:"json")
             XCTAssertNotNil(filePath, "Local file shouldn't be nil")
-           // XCTAssertNotNil(data, "data should be nil")
+            XCTAssertNotNil(data, "data should be nil")
             if let dataFromFile = NSData(contentsOfFile: filePath!){
                 XCTAssertEqual(dataFromFile, data)
             } else {
                 XCTFail("There was no data in the file")
             }
         }
-        
     }
     
     func testGetTrackDataWithSuccess() {
@@ -58,9 +58,10 @@ class DataManagerTests: XCTestCase {
         }
     }
     
-    func testLoadDataFromURL(){
+    func testLoadDataFromURL() {
         let URL = NSURL(string: "http://nshipster.com/")!
         let expectation = expectationWithDescription("Load data from \(URL)")
+        
         let _ = DataManager.loadDataFromURL(URL) { data, error in
             XCTAssertNotNil(data, "data should not be nil")
             XCTAssertNil(error, "error should be nil")
@@ -68,34 +69,31 @@ class DataManagerTests: XCTestCase {
             let expectation = self.expectationWithDescription("GET \(URL)")
             let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
             let session = NSURLSession(configuration: sessionConfig)
-            let loadDataTask = session.dataTaskWithURL(URL){ data, response, error in
-
-            if let HTTPResponse = response as? NSHTTPURLResponse,
-                responseURL = HTTPResponse.URL,
-                MIMEType = HTTPResponse.MIMEType
-            {
-                XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
-                XCTAssertEqual(HTTPResponse.statusCode, 200, "HTTP response status code should be 200")
-                XCTAssertEqual(MIMEType, "text/html", "HTTP response content type should be text/html")
-            } else {
-                XCTFail("Response was not NSHTTPURLResponse")
+            
+            let loadDataTask = session.dataTaskWithURL(URL) { data, response, error in
+                if let HTTPResponse = response as? NSHTTPURLResponse,
+                    responseURL = HTTPResponse.URL,
+                    MIMEType = HTTPResponse.MIMEType {
+                    XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
+                    XCTAssertEqual(HTTPResponse.statusCode, 200, "HTTP response status code should be 200")
+                    XCTAssertEqual(MIMEType, "text/html", "HTTP response content type should be text/html")
+                } else {
+                    XCTFail("Response was not NSHTTPURLResponse")
+                }
             }
-            }
-            expectation.fulfill()
-        
+        expectation.fulfill()
         
         loadDataTask.resume()
         self.waitForExpectationsWithTimeout(loadDataTask.originalRequest!.timeoutInterval) { error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
-        loadDataTask.cancel()
+            loadDataTask.cancel()
             }
-            
-    }
+        }
         expectation.fulfill()
 
-    waitForExpectationsWithTimeout(10) { error in
+        waitForExpectationsWithTimeout(10) { error in
         if let error = error {
             print("Error: \(error.localizedDescription)")
         }

@@ -15,19 +15,16 @@ class PopUpMenuViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        //Setting up tests
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    popUpVC = storyboard.instantiateViewControllerWithIdentifier("menu_vc") as! PopUpMenuViewController
+        popUpVC = storyboard.instantiateViewControllerWithIdentifier("menu_vc") as! PopUpMenuViewController
         let _ = popUpVC.view
-        
     }
     
     override func tearDown() {
         // This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
 
     func testControllerView() {
          XCTAssertNotNil(popUpVC.view,"View should exist")
@@ -43,5 +40,4 @@ class PopUpMenuViewControllerTests: XCTestCase {
         XCTAssert(popUpVC.backgroundView.userInteractionEnabled, "User Interaction should be enabled on background view")
         XCTAssert(popUpVC.backgroundView.gestureRecognizers?.count == 1, "Background View should have one gesture recognizer")
     }
-    
 }

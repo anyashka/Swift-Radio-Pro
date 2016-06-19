@@ -19,25 +19,18 @@ class SwiftRadioUITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        // This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
         XCUIApplication().launch()
-
+        
         // wait for the main view to load
         self.expectationForPredicate(
             NSPredicate(format: "self.count > 0"),
             evaluatedWithObject: stations,
             handler: nil)
         self.waitForExpectationsWithTimeout(10.0, handler: nil)
-        
     }
     
     override func tearDown() {
-   
         super.tearDown()
     }
     
@@ -94,7 +87,6 @@ class SwiftRadioUITests: XCTestCase {
             evaluatedWithObject: app.staticTexts["Loading Station..."],
             handler: nil)
         self.waitForExpectationsWithTimeout(25.0, handler: nil)
-
     }
     
     func testMainStationsView() {
@@ -133,10 +125,8 @@ class SwiftRadioUITests: XCTestCase {
         app.buttons["email me"].tap()
         app.navigationBars["From Swift Radio App"].buttons["Cancel"].tap()
         app.buttons["Okay"].tap()
-
         app.navigationBars["Sub Pop Radio"].buttons["Back"].tap()
 
-        
         app.tables.staticTexts["Sounds of the 80s"].swipeDown()
         app.otherElements.containingType(.NavigationBar, identifier:"Swift Radio").childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Table).element.tap()
         app.navigationBars["Swift Radio"].buttons["icon hamburger"].tap()
@@ -153,13 +143,11 @@ class SwiftRadioUITests: XCTestCase {
         searchSearchField2.buttons["Clear text"].tap()
         searchSearchField2.tap()
         app.searchFields["Search"]
+        
         let cancelButton = app.buttons["Cancel"]
         cancelButton.tap()
         searchSearchField.tap()
         element.tap()
         cancelButton.tap()
-        
-
     }
-    
 }

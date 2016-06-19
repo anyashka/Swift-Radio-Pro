@@ -14,7 +14,6 @@ class StationViewControllerTests: XCTestCase {
 
     var stationVC: StationsViewController!
 
-    
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -74,7 +73,6 @@ class StationViewControllerTests: XCTestCase {
         XCTAssert(stationVC.conformsToProtocol(UITableViewDataSource), "View should conform to UITableView datasource protocol")
     }
     
-    
     func testTableViewDataSource() {
         XCTAssertNotNil(stationVC.tableView.dataSource, "Table View datasource shouldn't be nil")
     }
@@ -82,7 +80,6 @@ class StationViewControllerTests: XCTestCase {
     func testTableViewIsConnectedToDelegate() {
         XCTAssertNotNil(stationVC.tableView.delegate, "Table delegate shouldn't be nil")
     }
-
     
     func testNumberOfSectionsInTableView() {
         let expectedNumberOfSections = 1
@@ -105,5 +102,4 @@ class StationViewControllerTests: XCTestCase {
             desc: "KVCU - Boulder, CO"))
         XCTAssertEqual(cell?.reuseIdentifier, "StationCell")
     }
-    
 }

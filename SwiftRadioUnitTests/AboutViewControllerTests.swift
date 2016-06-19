@@ -13,7 +13,6 @@ class AboutViewControllerTests: XCTestCase {
     
     var aboutVC: AboutViewController!
     
-    
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -29,7 +28,4 @@ class AboutViewControllerTests: XCTestCase {
     func testViewExistence() {
         XCTAssertNotNil(aboutVC.view, "View should exist")
     }
-    
-    
-    
 }
